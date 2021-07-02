@@ -4,11 +4,33 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import { 
+  useState, 
+  useEffect 
+} from 'react'
+import axios from 'axios'
 import Blogs from './components/Blogs'
 import Home from './components/Home'
 
 
 function App() {
+
+  const [post, setPost] = useState([])
+
+    useEffect (() => {
+      async function getPost() {
+        try{
+          const url = `http://localhost:3001/blog`
+          const response = await axios.get(url)
+          setPost(response.data.blog)
+          console.log(response.data)
+        } catch (err) {
+          console.log(err)
+        }
+      }
+      getPost()
+    }, [])
+
   return (
     <div className="App">
       <Router>
@@ -30,7 +52,7 @@ function App() {
 
         <Route
           exact path='/blog'
-          render={() => <Blogs />}
+          render={() => <Blogs post={post}/>}
           />
 
       </Router>
