@@ -1,0 +1,12 @@
+ 
+const Home = () => {
+    return(
+        <div>   
+            <h2>Blog Home</h2>
+            <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/the-main-drag-haleiwa-road-north-shore-hawaii-collection-art-reid-callaway.jpg" alt="haleiwa town">
+            </img>
+        </div>
+    )
+}
+
+export default Home
