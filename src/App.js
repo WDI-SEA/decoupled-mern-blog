@@ -12,21 +12,22 @@ import './App.css';
 // components
 import Blog from './components/Blog'
 import Post from './components/Post'
+import Edit from './components/Edit'
 
 const App = () => {
     const [apiRes, setApiRes] = useState()
     const apiUrl = 'http://localhost:3001/blog'
 
-    useEffect(() => {
-        async function getPosts() {
-            try {
-                const response = await axios.get(apiUrl)
-                setApiRes(response.data.allPosts)
-            } catch (error) {
-                console.log(error)
-            }
+    async function getPosts() {
+        try {
+            const response = await axios.get(apiUrl)
+            setApiRes(response.data.allPosts)
+        } catch (error) {
+            console.log(error)
         }
+    }
 
+    useEffect(() => {
         getPosts()
     }, [])
 
@@ -53,7 +54,7 @@ const App = () => {
                             const post = apiRes.find(post => post._id.toString() === props.match.params.id)
                             props = {...props, ...post}
                         }
-                        return <Post {...props} />
+                        return <Edit {...props} />
                     } }
                 />
             </Router>
