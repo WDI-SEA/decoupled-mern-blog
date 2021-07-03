@@ -7,7 +7,7 @@ import {
 } from 'react'
 import axios from 'axios'
 
-  const Posts = (props) => {
+  const Posts = () => {
     const {id} = useParams()
 
     const [post, setPost] = useState([])
@@ -17,16 +17,8 @@ import axios from 'axios'
         try{
           const url = `http://localhost:3001/blog/${id}`
           const response = await axios.get(url)
-          // const postTitle = response.map((single, index) => {
-          //   if(single._id === id)
-          //   {
-          //     return(
-          //       single
-          //     )
-          //   }
-          // })
+        
           setPost(response.data)
-          console.log(response.data)
         } catch (err) {
           console.log(err)
         }
@@ -34,7 +26,6 @@ import axios from 'axios'
       getPost()
     }, [])
 
-    // if(!post.name) return <h1>{`I have never heard of a service called ${props.match.params.id} before 🤔`}</h1>
     return(
       <div>
        <h3>{post.name}</h3>
