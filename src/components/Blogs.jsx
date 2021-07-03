@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
-import Posts from './Posts'
 
-const Blog = (props) => {
-    const postData = props.post.map((post, index) => {
+const Blogs = (props) => {
+    const postData = props.blog.map((post, index) => {
         return (
           <div key={index}>
             {/* <h3> Name: {post.name} </h3> */}
-            <h4> <Link to={`/blog/${post.id}`}>{post.title}</Link> </h4>
+            <h4> <Link to={`/blog/${post._id}`}>{post.title}</Link> </h4>
             {/* <p> Content: {post.content} </p> */}
           </div>
         )
@@ -22,4 +21,4 @@ const Blog = (props) => {
     )
 }
 
-export default Blog
+export default Blogs

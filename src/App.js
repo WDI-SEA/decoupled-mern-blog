@@ -11,18 +11,19 @@ import {
 import axios from 'axios'
 import Blogs from './components/Blogs'
 import Home from './components/Home'
+import Posts from './components/Posts'
 
 
 function App() {
 
-  const [post, setPost] = useState([])
+  const [posts, setPosts] = useState([])
 
     useEffect (() => {
       async function getPost() {
         try{
           const url = `http://localhost:3001/blog`
           const response = await axios.get(url)
-          setPost(response.data.blog)
+          setPosts(response.data.blog)
           console.log(response.data)
         } catch (err) {
           console.log(err)
@@ -52,8 +53,12 @@ function App() {
 
         <Route
           exact path='/blog'
-          render={() => <Blogs post={post}/>}
+          render={() => <Blogs blog={posts}/>}
           />
+
+        <Route path='/blog/:id'>
+            <Posts />
+        </Route>
 
       </Router>
     </div>
