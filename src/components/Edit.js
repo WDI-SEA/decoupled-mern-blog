@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 const Edit = (props) => {
-    const [content, setContent] = useState("")
+    const [content, setContent] = useState("test")
     const [redirect, setRedirect] = useState(false)
     const [postId, setPostId] = useState("")
     const apiUrl = 'http://localhost:3001/blog/'
@@ -12,10 +12,11 @@ const Edit = (props) => {
         console.log(props)
     })
 
+    // TODO: finish axios.put
     const putEdit = async (e) => {
         e.preventDefault()
         console.log(e.target)
-        await axios.put(`${apiUrl}${props._id}`, content, {headers: {'Content-Type': 'application/json'} })
+        await axios.put(`${apiUrl}${props._id}`, {body: content})
         setRedirect(true)
         setPostId(`/blog/${props._id}`)
     }
