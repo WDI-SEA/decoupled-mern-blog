@@ -30,7 +30,7 @@ import axios from 'axios'
       <div>
        <h3>{post.name}</h3>
   
-       <h6>{post.title}</h6>
+       <h2>{post.title}</h2>
   
        <p>{post.content}</p>
       </div>

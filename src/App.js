@@ -11,7 +11,7 @@ import {
 import axios from 'axios'
 import Blogs from './components/Blogs'
 import Home from './components/Home'
-import Posts from './components/Posts'
+import Post from './components/Post'
 
 
 function App() {
@@ -57,7 +57,7 @@ function App() {
           />
 
         <Route path='/blog/:id'>
-            <Posts />
+            <Post />
         </Route>
 
       </Router>
