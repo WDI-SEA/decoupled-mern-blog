@@ -1,11 +1,13 @@
 import './App.css';
 import Header from "./Header"
+import Blog from './Blog'
 
 import { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function App() {
   const [blog, setBlog] = useState([])
@@ -26,7 +28,9 @@ function App() {
 const renderedBlogs = blog.map((blog, idx) =>
   <div key={idx}>
     <h3> 
-      {blog.title}
+      <li>
+        <Link to={`/blogs/${blog._id}`}> {blog.title}</Link>
+      </li>
     </h3>
   </div>
   )
@@ -38,6 +42,16 @@ const renderedBlogs = blog.map((blog, idx) =>
 
       <h1>Welcome to the Blog!</h1>
       {renderedBlogs}
+
+      <Route 
+        path='/blogs/:id'
+       
+        render={props => {
+          renderedBlogs.find(props.match.params._id)
+          props = {...props}
+          return <Blog {...props} />
+        }}
+      />
 
     </Router>
     
