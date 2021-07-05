@@ -5,8 +5,12 @@ const Post = (props) => {
     const apiUrl = 'http://localhost:3001/blog/'
 
     const deletePost = async (id) => {
-        // setup axios call to hit api /blog/:id
-        await axios.delete(`${apiUrl}${id}`)
+        try {
+            // setup axios call to hit api /blog/:id
+            await axios.delete(`${apiUrl}${id}`)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     // setup list of tags
@@ -26,7 +30,6 @@ const Post = (props) => {
             <ul>{ tags }</ul>
             <p>{ props.content }</p>
             <p><a href={`/edit/${props._id}`}>Edit</a>  <a href="/" onClick={() => deletePost(props._id)}>Delete</a></p>
-
         </div>
     )
 }
