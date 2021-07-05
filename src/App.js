@@ -45,20 +45,24 @@ const renderedBlogs = blog.map((blog, idx) =>
         <input
           type="text"
           name="title"
-          value={title}
-          onChange={this.onChange}
+          placeholder='Enter Title'
+          onChange={e => setTitle(e.target.value)}
         />
         <input
           type="text"
           name="subTitle"
-          value={subTitle}
-          onChange={this.onChange}
+          placeholder='Enter Subtitle'
+          onChange={e => setSubTitle(e.target.value)}
         />
         <input
           type="text"
           name="content"
-          value={content}
-          onChange={this.onChange}
+          placeholder='Write your blog...'
+          onChange={e => setContent(e.target.value)}
+        />
+        <input
+          type='submit'
+          value='Submit'
         />
       </form>
     
