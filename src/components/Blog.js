@@ -1,10 +1,20 @@
-import Post from './Post'
+import React from 'react'
 
-export default function Blog() {
+export default function Blog(props) {
+    // manipulate the response
+    const renderPosts = props.posts.map((post, index) => {
+        return (
+            <div key={index}>  
+                 <h3><a href={`/blog/${post._id}`}>{post.name}</a></h3>
+                <h6>{post.tags}</h6>
+            </div>
+        )
+    })
+
     return (
         <div>
-            <h1>Andie's Blog 💀</h1>
-            <Post />
+            {renderPosts}
         </div>
     )
 }
+
