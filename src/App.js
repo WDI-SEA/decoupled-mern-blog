@@ -8,6 +8,7 @@ import axios from 'axios'
 
 // styling
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
 import Blog from './components/Blog'
