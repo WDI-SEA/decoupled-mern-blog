@@ -29,34 +29,20 @@ const App = () => {
 
        <h1>Welcome to the Blog Place!</h1>
        <h2>Select a blog post from below to read it</h2>
-       
+
        <Navigation />
 
-        {/* <Route exact path='/' component={App} />
+        <Route exact path='/' component={App} 
+        render={App} /> 
     
-        <Route path='./Create' component={Create} />
+        <Route path='/Create' component={Create} />
           
-        <Route path='./One' component={One} />
+        <Route path='/One' component={One} />
      
-        <Route path='./Two' component={Two} />
+        <Route path='/Two' component={Two} />
      
-        <Route path='./Three' component={Three} /> */}
+        <Route path='/Three' component={Three} /> 
 
-      {/* <p>
-        <ul>
-          <li>
-        Entry One
-          </li>
-
-          <li>
-          Entry Two
-          </li>
-
-          <li>
-          Entry Three
-          </li>
-        </ul>
-      </p> */}
       {renderedBlog}
       </Router>
 </div>  
