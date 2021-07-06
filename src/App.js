@@ -35,11 +35,11 @@ const renderedBlogs = blog.map((blog, idx) =>
   </div>
   )
   
-const displayBlog = blog.map((blogId, idx) => {
-  <div key={idx}>
-    <h2>{`/blogs/${blogId._id}`}</h2>
-  </div>
-})
+// const displayBlog = blog.map((blogId, idx) => {
+//   <div key={idx}>
+//     {`/blogs/${blogId._id}`}
+//   </div>
+// })
 
   return (
     <div className="App">
@@ -48,11 +48,13 @@ const displayBlog = blog.map((blogId, idx) => {
 
       <h1>Welcome to the Blog!</h1>
       {renderedBlogs}
+    
 
       <Route 
         path='/blogs/:id'
         render={props => {
-          console.log(props)
+          console.log('🌈',props)
+        return <Blog />
         }}
        />
 
