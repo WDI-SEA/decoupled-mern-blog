@@ -11,19 +11,18 @@ import Blogs from './components/Blogs'
 import Post from './components/Post'
 
 
-
-
 function App()  {
-  const [blogData, setBlogData ] = useState([])
+  const [blogData, setBlogData] = useState([])
 
-    useEffect(() => {
-        axios.get("http://localhost:3001/blog")
-        .then(res => {
-            setBlogData(res.data)
-            console.log(blogData)
-        })
-        .catch(err => console.log(err))
-    },[blogData])
+  useEffect(() => {
+      axios.get("http://localhost:3001/blog")
+      .then(res => {
+          setBlogData(res.data)
+          console.log(blogData)
+      })
+      .catch(err => console.log(err))
+  },[])
+
 
   return (
     <div className="App">
@@ -46,18 +45,16 @@ function App()  {
 
         <Route
           exact path='/blog'
-          render={() => <Blogs blog={"posts"}/>}
+          render={() => <Blogs blog={ blogData }/>}
           />
 
         <Route
-          path="/post/:id"
-          render={(props) => {
-              if(blogData) {
-                  const post = blogData.find(post => post._id.toString() === props.match.params.id)
-                  props = {...props, ...post}
-              }
-              return <Post {...props} />
-          } }
+        exact path="/blog/:id"
+        render={props => {
+            const post = blogData.find(e => e._id.toString() === props.match.params.id)
+            props = {...props, ...post}
+            return <Post {...props}/>
+         }}
         />
 
 
@@ -66,8 +63,5 @@ function App()  {
   )
   
 
-
-
-
-}
+ }
 export default App;

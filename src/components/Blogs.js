@@ -1,9 +1,11 @@
 import React from 'react'		
 
 const Blogs = (props) => {
-    let postData
-    if(props.posts){
-        postData = props.posts.map((each, index) => {
+    // console.log(props.blog)
+    let blogData = props.blog
+    console.log(blogData)
+    if(blogData){
+        blogData = blogData.map((each, index) => {
             return (
                 <li key={ index }>
                     <h4>{ each.title }</h4>
@@ -14,12 +16,12 @@ const Blogs = (props) => {
         })
     }
 
-    console.log(props)
+    // console.log(props)
 
     return (
         <div>
             <ul>
-                { postData }
+                { blogData }
             </ul>
         </div>
     )
