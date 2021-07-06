@@ -11,9 +11,9 @@ import { Link } from 'react-router-dom'
 
 function App() {
   const [blog, setBlog] = useState([])
-  const [title, setTitle] = useState('')
-  const [subTitle, setSubTitle] = useState('')
-  const [content, setContent] = useState('')
+  // const [title, setTitle] = useState('')
+  // const [subTitle, setSubTitle] = useState('')
+  // const [content, setContent] = useState('')
 
   useEffect(() => {
     fetch('http://localhost:3001/blogs')
@@ -51,16 +51,15 @@ const renderedBlogs = blog.map((blog, idx) =>
     
 
       <Route 
-        path='/blogs/:id'
+        path='/blogs/:id' 
         render={props => {
-          console.log('🌈',props)
-        return <Blog />
+          return(<Blog {...props} />) 
         }}
-       />
+         />
 
     </Router>
     
-    <form>
+    {/* <form>
         <input
           type="text"
           name="title"
@@ -83,7 +82,7 @@ const renderedBlogs = blog.map((blog, idx) =>
           type='submit'
           value='Submit'
         />
-      </form>
+      </form> */}
     
     </div>
   );
