@@ -34,6 +34,12 @@ const renderedBlogs = blog.map((blog, idx) =>
     </h3>
   </div>
   )
+  
+const displayBlog = blog.map((blogId, idx) => {
+  <div key={idx}>
+    <h2>{`/blogs/${blogId._id}`}</h2>
+  </div>
+})
 
   return (
     <div className="App">
@@ -45,13 +51,10 @@ const renderedBlogs = blog.map((blog, idx) =>
 
       <Route 
         path='/blogs/:id'
-       
         render={props => {
-          renderedBlogs.find(props.match.params._id)
-          props = {...props}
-          return <Blog {...props} />
+          console.log(props)
         }}
-      />
+       />
 
     </Router>
     
