@@ -4,11 +4,12 @@ import React, { useEffect, useState } from "react"
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  // Link
 } from "react-router-dom";
 import Home from './components/Home'
 import Blogs from './components/Blogs'
 import Post from './components/Post'
+import { Nav } from 'react-bootstrap';
 
 
 function App()  {
@@ -18,7 +19,7 @@ function App()  {
       axios.get("http://localhost:3001/blog")
       .then(res => {
           setBlogData(res.data)
-          console.log(blogData)
+          // console.log(blogData)
       })
       .catch(err => console.log(err))
   },[])
@@ -27,16 +28,14 @@ function App()  {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <ul>
-            <ul>
-             <Link to='/'>Home</Link>
-            </ul>
-            <ul>
-            <Link to='/blog'>Blog</Link>
-            </ul>
-          </ul>
-        </nav>
+        <Nav variant="pills" defaultActiveKey="/home">
+      <Nav.Item>
+        <Nav.Link href="/">Home</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+          <Nav.Link href="/blog">Blog</Nav.Link>
+      </Nav.Item>
+      </Nav>
 
         <Route
           exact path='/'
@@ -49,15 +48,22 @@ function App()  {
           />
 
         <Route
-        exact path="/blog/:id"
-        render={props => {
-            const post = blogData.find(e => e._id.toString() === props.match.params.id)
-            props = {...props, ...post}
-            return <Post {...props}/>
-         }}
-        />
-
-
+            exact path='/blog/:id'
+            render={(props) => {
+              const post = blogData.find(blog=> {
+                return blog._id === props.match.params.id
+  
+              })
+              props = {...props, ...post}
+              return (
+                <Post {...props}/>
+              )
+  
+            }
+          }
+                
+          />
+                                      
       </Router>
     </div>
   )
@@ -65,3 +71,6 @@ function App()  {
 
  }
 export default App;
+
+
+
