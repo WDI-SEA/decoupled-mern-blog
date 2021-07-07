@@ -1,0 +1,13 @@
+* {
+  align-content:  center;
+  background-color: lightslategrey;
+}
+ul {
+  list-style-type: none;
+}
+
+nav {
+  display: inline;
+  padding: 15px;
+  margin: 15px;
+}
