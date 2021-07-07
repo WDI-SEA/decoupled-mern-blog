@@ -13,6 +13,7 @@ import './App.css';
 import Blog from './components/Blog'
 import Post from './components/Post'
 import Edit from './components/Edit'
+import New from './components/New'
 import Header from './components/Header'
 
 const App = () => {
@@ -59,6 +60,8 @@ const App = () => {
                         return <Edit {...props} />
                     } }
                 />
+
+                <Route path="/new" component={New} />
             </Router>
         </div>
     );

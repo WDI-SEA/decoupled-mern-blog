@@ -15,7 +15,6 @@ const Edit = (props) => {
         }
     }, [props])
 
-    // TODO: finish axios.put
     const putEdit = async (e) => {
         e.preventDefault()
         console.log(e.target)
