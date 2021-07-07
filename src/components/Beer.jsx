@@ -1,33 +1,23 @@
 import {Link} from 'react-router-dom'
-
+import React from 'react';
+import {Paper} from '@material-ui/core'
+import {List} from '@material-ui/core'
+import {Divider} from '@material-ui/core'
+import {ListItem} from '@material-ui/core'
+import {ListItemText} from '@material-ui/core'
+ 
 export default function Beer(props) {
-    console.log(props, "HOME PAGE ")
-    let beers = props.beer.map(item => {
-        return (
-        <li key={item._id}>
-            <Link to={`/beer/${item._id}`}>{item.name}</Link>
-        </li>
-        )
-    })
-    return(
-        <div>
-            <h4>Learn more about our beers</h4>
-        <ul>
-           {beers}
-        </ul>
-        {/* <form>
-                <label htmlFor='name'>Add your fav beer to our website</label>
-                <input 
-                id='name'
-                type='text'
-                placeholder='name...'
-                onChange={e => setUser({...user, name:e.target.value})}
-                // you need to spread the user object and then we override the name key with the second value 
-                // you can spread objects into objects and arrays into arrays 
-                // you can not spread objects into arrays vice versa 
-                />
-            </form> */}
-        </div>
-       
+    return (
+        <List >
+            {props.beer.map(item => (
+                <ListItem>
+                    <ListItemText>
+                        <span>{item.name}</span> 
+                        <br></br>
+                        <Link to={`/beer/${item._id}`}>Learn More</Link>
+                    </ListItemText>
+                </ListItem>
+            ))}
+        </List>
     )
 }

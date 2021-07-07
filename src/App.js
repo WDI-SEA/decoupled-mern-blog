@@ -1,7 +1,12 @@
-import './App.css';
-
 import Beer from './components/Beer'
 import Description from './components/Description'
+import Header from './components/Header'
+
+import { Typography } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
+import { AppBar } from '@material-ui/core';
+import { Toolbar } from '@material-ui/core';
+
 
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
@@ -33,24 +38,20 @@ function App() {
   }, [])
 
 
-
-
-
   return (
+   
     <div className="App">
-      
+      <Header />
       <Router>
-
+      
         <Route 
           exact path ='/'
           render ={() => <Beer beer={beer} />}
-          
         />
-
         <Route 
           exact path='/beer/:id'
           render={props => {
-            console.log(props.match.params)
+            console.log(props, "PROPS ID")
             const description = beer.find(beer => beer._id.toString()=== props.match.params.id)
             props = {...props, ...description}
             return(
@@ -58,14 +59,9 @@ function App() {
             )
           }}
         />
-
-
-
-
-
-
       </Router>
     </div>
+  
   );
 }
 
