@@ -8,12 +8,12 @@ import axios from 'axios'
 
 // styling
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 // components
 import Blog from './components/Blog'
 import Post from './components/Post'
 import Edit from './components/Edit'
+import Header from './components/Header'
 
 const App = () => {
     const [apiRes, setApiRes] = useState()
@@ -34,6 +34,7 @@ const App = () => {
 
     return (
         <div className="container">
+            <Header />
             <Router>
                 <Route exact path="/" render={() => <Blog posts={ apiRes } /> } />
 

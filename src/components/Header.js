@@ -1,0 +1,26 @@
+import { Navbar, Container, Nav } from 'react-bootstrap'
+
+const Header = () => {
+    return (
+        <>
+        <div className="jumbotron mb-0">
+            <h1 className="display-4">Hello, welcome to our blog!</h1>
+            <p className="lead">We have many interesting blog posts to be sure to entice you! Start clicking away and be amazed!</p>
+        </div>
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand href="#home">Blog</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="/">Home</Nav.Link>
+                        <Nav.Link href="#">About</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+        </>
+    )
+}
+
+export default Header
