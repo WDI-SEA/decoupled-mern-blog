@@ -7,8 +7,8 @@ export default function PostsList(props) {
     
     const renderPosts = props.posts.map((post, index) => {
         
-        return <li key={index}>
-            <Link to={`/blog/${post._id}`}>{post.name}</Link>
+        return <li key={index} style={{listStyleType: 'none'}}>
+            <Link style={{color: 'lightblue'}} to={`/blog/${post._id}`}>{post.name}</Link>
             </li>
     })
     // }
@@ -16,7 +16,7 @@ export default function PostsList(props) {
 
 
     return(
-        <div>
+        <div style={{color:'white'}}>
             <h5>Check out a some of our blog posts:</h5>
             {renderPosts}
         </div>

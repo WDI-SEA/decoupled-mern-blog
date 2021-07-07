@@ -1,5 +1,7 @@
 import PostsList from './components/PostsList'
 import BlogPosts from './components/BlogPosts'
+import Nav from './components/Nav'
+import TestAnimation from './components/TestAnimation'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
@@ -41,7 +43,7 @@ function App() {
 
   return (
     <div className="App">
-
+      <Nav />
        <Router>
          
         
@@ -51,22 +53,9 @@ function App() {
 
         <Route path ='/blog/:id' render={props => {
           
-          // console.log(props.match.params.id) 
-
-          // console.log(posts, "POSTS 😁")
-
-          // posts.map((post, index) => {
-          //   // props = {...props, ...post}
-          //   // console.log(post)
-          //   console.log(post._id)
-
-          //   // posts.find(post._id.toString() === props.match.params.id)
-
-          //   console.log(typeof(post._id.toString()), typeof(props.match.params.id))
-
-          //   if(post._id.toString() === props.match.params.id){
+          
           const findIt = posts.find(post=>post._id.toString() === props.match.params.id)
-          console.log(findIt)
+          // console.log(findIt)
           props = {...props, ...findIt}
               return <BlogPosts {...props} />
 
@@ -82,6 +71,7 @@ function App() {
        </Router>
 
 
+        
     </div>
   );
 }
