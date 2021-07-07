@@ -3,7 +3,7 @@ import axios from 'axios'
 import Post from './Post'
 
 export default function Blog(props) {
-  const [posts, setPosts] = useState([])
+  const [post, setPosts] = useState([])
   
   useEffect(() => {
     const getPosts = async () => {
@@ -21,8 +21,8 @@ export default function Blog(props) {
       }
     }
     getPosts() 
-  }, [])
-  const renderPosts = posts.map((post) => {
+  }, [setPosts])
+  const renderPosts = post.map((post) => {
     console.log(post)
     return (
       <Post key={post._id} post={post} />
@@ -32,6 +32,7 @@ export default function Blog(props) {
     <div>
       <h2>this is a blog</h2>
       {renderPosts}
+      <Post />
     </div>
   )
 }
