@@ -6,10 +6,18 @@ const Navigation = () => {
             <ul>
                 <li>
                     <Link to='/'>Home Page</Link>
-                </li>
+                </li>    
 
                 <li>
                     <Link to='/Create'>Create a Blog</Link>
+                </li>
+            </ul>
+            
+            {/* <ul>
+                <li> */}
+                {/* </li>
+
+                <li>
                 </li>
 
                 <li> 
@@ -23,7 +31,7 @@ const Navigation = () => {
                 <li> 
                     <Link to='/Three'>Entry Three</Link>
                 </li>
-            </ul>
+            </ul> */}
         </nav>
     )
 }

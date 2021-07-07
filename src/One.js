@@ -1,12 +1,17 @@
 import React from 'react'
 
-const One = (props) => {
+const One = () => {
     return(
         <div>
-            <h3>{props.title}</h3>
-            <h1>Post One</h1>
-            <h2>The Beach</h2>
-            <p>Who doesn't love the ocean?  In this post, we'll explore some of the best beaches around to decide where we should head next.</p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat auctor euismod. Proin ultrices convallis diam. 
+                Quisque varius sem sed purus euismod, non sodales nunc ornare. Vestibulum metus dolor, pellentesque eu dolor id, sodales 
+                lobortis velit. Suspendisse potenti. Fusce auctor feugiat odio ac eleifend. Maecenas a metus viverra, convallis lacus a, 
+                consequat purus. Cras ut pulvinar justo, vitae accumsan dui. Mauris et mattis ipsum, et mollis tellus. Vivamus tristique 
+                lectus leo. Phasellus venenatis ex nec pellentesque consectetur. Morbi metus turpis, blandit id libero at, consectetur 
+                congue est. Donec mollis tellus ut ex tincidunt maximus ac ut erat. Suspendisse ut laoreet nibh. Suspendisse volutpat 
+                libero at elit auctor, nec hendrerit tellus maximus. Phasellus vel mi et felis hendrerit rhoncus.
+            </p>    
         </div>
     )
 }
