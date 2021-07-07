@@ -1,38 +1,23 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import Post from './Post'
+//import { useState, useEffect } from 'react'
+
+
+import { Link } from "react-router-dom"
 
 export default function Blog(props) {
-  const [post, setPosts] = useState([])
-  
-  useEffect(() => {
-    const getPosts = async () => {
-      try{
-        let blogPosts = {}
-        if(props.match.params.id) {
-          blogPosts = await axios.get(`http://localhost:3001/blog/${props.match.params.id}`)
-          setPosts([blogPosts.data.post])
-        } else {
-          blogPosts = await axios.get('http://localhost:3001/blog')
-          setPosts(blogPosts.data)
-        }
-      } catch(err) {
-        console.log(err)
-      }
-    }
-    getPosts() 
-  }, [setPosts])
-  const renderPosts = post.map((post) => {
-    console.log(post)
-    return (
-      <Post key={post._id} post={post} />
-    )
-  })
+ //console.log(props.blogPosts)
+ const blogLinks = props.blogPosts.map((post) => {
+   return(
+     <li key={`${post.title}-${post.name}`}>
+       <Link to={`/blog/${post._id}`} >{post.name}</Link>
+     </li>
+   )
+ })
   return(
     <div>
-      <h2>this is a blog</h2>
-      {renderPosts}
-      <Post />
+      <h2>Todays blogs::</h2>
+      <ul>
+        {blogLinks}
+      </ul>
     </div>
   )
 }

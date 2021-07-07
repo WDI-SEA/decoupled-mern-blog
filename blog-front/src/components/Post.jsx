@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 
 export default function Post(props) {
+    console.log(props)
     return(
         <div>
-            <h2>hello from new post!</h2>
-            
-            
-            
+            <h2>{props.title}</h2>
+            <h4>by {props.name}</h4>
+            <p>{props.content}</p>
         </div>
     )
 }
