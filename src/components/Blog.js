@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { } from 'styled-components'
 
 const PostDivs = styled.div`
     background-color: white;
@@ -13,11 +13,33 @@ const Container = styled.div`
     flex-wrap: wrap;
 `
 
+const ListElem = styled.li`
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 3px;
+    font-size: 12px;
+    color: #D6739D;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+`
+
+const ListDiv = styled.ul`
+    padding-left: 0px;
+`
+
+const Title = styled.h3`
+    font-family: 'Bungee Shade', cursive;
+    font-size: 1.5rem;
+`
+
+
+
 export default function Blog(props) {
     // console.log(props.tags)
     const oneTag = (post) => post.tags.map(tag => {
                 return (
-                    <li className="tags">{tag}</li>
+                    <ListElem>{tag}</ListElem>
                 )
             })
 
@@ -27,8 +49,8 @@ export default function Blog(props) {
         return (
 
             <PostDivs key={index}>  
-                 <h3><a href={`/blog/${post._id}`}>{post.name}</a></h3>
-                <h6>{ oneTag(post) }</h6>
+                <Title><a href={`/blog/${post._id}`} style={{textDecoration: "none", color: "black"}}>{post.name}</a></Title>
+                <ListDiv>{ oneTag(post) }</ListDiv>
             </PostDivs>
         )
     })
