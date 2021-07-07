@@ -9,6 +9,27 @@ import {
 } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
+// STYLING
+
+import styled from 'styled-components';
+
+const StyledLink = styled.li`
+  list-style-type: none;
+  color: purple;
+  &:hover {
+    background: green;
+  }
+`
+
+const Welcome = styled.h1`
+background: #FF12DF;
+background: -webkit-linear-gradient(to right, #FF12DF 0%, #1EF72C 100%);
+background: -moz-linear-gradient(to right, #FF12DF 0%, #1EF72C 100%);
+background: linear-gradient(to right, #FF12DF 0%, #1EF72C 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+`
+
 function App() {
   const [blog, setBlog] = useState([])
   // const [title, setTitle] = useState('')
@@ -28,61 +49,30 @@ function App() {
 const renderedBlogs = blog.map((blog, idx) =>
   <div key={idx}>
     <h3> 
-      <li>
+      <StyledLink>
         <Link to={`/blogs/${blog._id}`}> {blog.title}</Link>
-      </li>
+      </StyledLink>
     </h3>
   </div>
   )
   
-// const displayBlog = blog.map((blogId, idx) => {
-//   <div key={idx}>
-//     {`/blogs/${blogId._id}`}
-//   </div>
-// })
 
   return (
     <div className="App">
-    <Router>
-      <Header />
+      <Router>
+        <Header />
 
-      <h1>Welcome to the Blog!</h1>
-      {renderedBlogs}
-    
+        <Welcome>Welcome to the Blog!</Welcome>
+        {renderedBlogs}
 
-      <Route 
-        path='/blogs/:id' 
-        render={props => {
-          return(<Blog {...props} />) 
-        }}
-         />
+        <Route 
+          path='/blogs/:id' 
+          render={props => {
+            return(<Blog {...props} />) 
+          }}
+          />
 
-    </Router>
-    
-    {/* <form>
-        <input
-          type="text"
-          name="title"
-          placeholder='Enter Title'
-          onChange={e => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          name="subTitle"
-          placeholder='Enter Subtitle'
-          onChange={e => setSubTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          name="content"
-          placeholder='Write your blog...'
-          onChange={e => setContent(e.target.value)}
-        />
-        <input
-          type='submit'
-          value='Submit'
-        />
-      </form> */}
+      </Router>
     
     </div>
   );
