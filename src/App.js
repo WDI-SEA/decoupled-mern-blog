@@ -1,3 +1,5 @@
+import './App.css'
+import Heading from './components/Header'
 import Blog from './components/Blog'
 import Post from './components/Post'
 import React, { useEffect, useState } from 'react'
@@ -30,18 +32,16 @@ export default function App() {
 
     return (
         <div className="App">
-            <h1>Andie's Blog 💀</h1>
+            <Heading />
             <Router>
-              <Route exact path="/" render={() => <Blog posts={ posts } /> } />
+              <Route exact path="/blog" render={() => <Blog posts={ posts } /> } />
 
               <Route
                 path="/blog/:id"
                 render={(props) => {
                     console.log(props)
-                    const foundPost = posts.find(onePost => {
-                    console.log(onePost)
-                    return onePost = props.match.params.id 
-                    })
+                    const foundPost = posts.find(onePost => onePost._id.toString() === props.match.params.id) || {tags:[]}
+                    console.log(foundPost)
                     props = { ...props, ...foundPost}
                   return <Post {...props} />
                 }}
