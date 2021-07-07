@@ -18,16 +18,16 @@ const Post = (props) => {
     if(props.tags) {
         tags = props.tags.map((tag, index) => {
             return (
-                <li key={index} className="tags">{tag}</li>
+                <button key={index} className="btn btn-outline-secondary btn-sm ml-2">{tag}</button>
             )
         })
     }
 
     return (
-        <div>
+        <div className="container">
             <h2>{ props.title }</h2>
-            <h3>{ props.author }</h3>
-            <ul>{ tags }</ul>
+            <h3 className="text-muted">By: { props.author }</h3>
+            <div>Tags: { tags }</div>
             <p>{ props.content }</p>
             <p><a href={`/edit/${props._id}`}>Edit</a>  <a href="/" onClick={() => deletePost(props._id)}>Delete</a></p>
         </div>
