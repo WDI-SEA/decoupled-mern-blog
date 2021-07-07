@@ -11,7 +11,7 @@ const Blogs = (props) => {
     
     return(
         <div>
-            <h2>List of Blogs</h2>
+            <h2>Blogs</h2>
             <ul>
                 {postData}
             </ul>
