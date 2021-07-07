@@ -1,10 +1,7 @@
  
 const Home = () => {
     return(
-        <div>   
-           
-          
-        </div>
+           <img src="https://ichef.bbci.co.uk/images/ic/704xn/p0735xlw.jpg" width="1280" height="350"></img>
     )
 }
 
