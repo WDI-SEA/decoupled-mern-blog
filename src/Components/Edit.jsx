@@ -50,7 +50,7 @@ const Edit = (props) => {
                     {/* <input type="text" className="form-control" name={title}/> */}
                     <input value={title} onChange={e => newTitle(e)}/>
                 </div>
-                
+
                 <div className="form-group">
                     <label htmlFor="content">Author: </label>
                     {/* <textarea className="form-control" name="content"/> */}
@@ -71,5 +71,6 @@ const Edit = (props) => {
     </div>
     )
 }
+
 
 export default Edit
