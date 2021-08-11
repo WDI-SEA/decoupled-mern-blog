@@ -13,7 +13,7 @@ const Edit = (props) => {
         console.log(props)
         if(props.title) {
             setTitle(props.title)
-            
+            setAuthor(props.author)
             setContent(props.content)
         }
     }, [props])
@@ -25,6 +25,7 @@ const Edit = (props) => {
         console.log("this is content: " + content)
         await axios.put(`${apiUrl}${props._id}`, {
             title: title,
+            author: author,
             content: content
         })
     }
@@ -50,10 +51,9 @@ const Edit = (props) => {
                     {/* <input type="text" className="form-control" name={title}/> */}
                     <input value={title} onChange={e => newTitle(e)}/>
                 </div>
-
                 <div className="form-group">
-                    <label htmlFor="content">Author: </label>
-                    {/* <textarea className="form-control" name="content"/> */}
+                    <label htmlFor="author">Author: </label>
+                    {/* <input type="text" className="form-control" name={title}/> */}
                     <input value={author} onChange={e => newAuthor(e)}/>
                 </div>
               
@@ -63,7 +63,7 @@ const Edit = (props) => {
                     <input value={content} onChange={e => newContent(e)}/>
                 </div>
 
-                <button type="submit" onClick={(e) => putEdit(e)}>
+                <button type="submit" onClick={e => putEdit(e)}>
                     Submit
                 </button>
             </form>
@@ -71,6 +71,5 @@ const Edit = (props) => {
     </div>
     )
 }
-
 
 export default Edit

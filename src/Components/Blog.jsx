@@ -35,11 +35,11 @@ const Blog = () => {
                       <div className="title">{blogs.title}</div>
                     </Link>
                 <div className="wrapper row" id='author'>
-                      <h6 classNamed="col">by: {blogs.author} </h6>
+                      <h6 className="col">by: {blogs.author} </h6>
                 </div>
 
                 <div className="wrapper row" id='content'>   
-                      <p classNamed="col">{blogs.content}</p>
+                      <p className="col">{blogs.content}</p>
                 </div>
                       <br/>
           </div>
