@@ -5,6 +5,7 @@ import axios from 'axios'
 const Edit = (props) => {
     const [content, setContent] = useState("")
     const [title, setTitle] = useState("")
+    const [author, setAuthor] = useState("")
    
     const apiUrl = 'http://localhost:3001/edit/'
 
@@ -20,10 +21,22 @@ const Edit = (props) => {
     const putEdit = async (e) => {
         e.preventDefault()
         console.log(e.target)
+        console.log("this is title: " + title)
+        console.log("this is content: " + content)
         await axios.put(`${apiUrl}${props._id}`, {
             title: title,
             content: content
         })
+    }
+
+    const newTitle = async (e) => {
+      setTitle(e.target.value)  
+    }
+    const newContent = async (e) => {
+      setContent(e.target.value)  
+    }
+    const newAuthor = async (e) => {
+      setAuthor(e.target.value)  
     }
 
     return (
@@ -31,16 +44,25 @@ const Edit = (props) => {
       <h1>Edit Blog Post</h1>
       
         <div className="wrapper pt-3">
-            <form id="new-form" action="http://localhost:3001/blog/:id" method="put">
+            <form>
                 <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input type="text" className="form-control" name="title"/>
+                    <label htmlFor="title">Title: </label>
+                    {/* <input type="text" className="form-control" name={title}/> */}
+                    <input value={title} onChange={e => newTitle(e)}/>
+                </div>
+                
+                <div className="form-group">
+                    <label htmlFor="content">Author: </label>
+                    {/* <textarea className="form-control" name="content"/> */}
+                    <input value={author} onChange={e => newAuthor(e)}/>
                 </div>
               
                 <div className="form-group">
-                    <label htmlFor="content">Content</label>
-                    <textarea className="form-control" name="content"/>
+                    <label htmlFor="content">Content: </label>
+                    {/* <textarea className="form-control" name="content"/> */}
+                    <input value={content} onChange={e => newContent(e)}/>
                 </div>
+
                 <button type="submit" onClick={(e) => putEdit(e)}>
                     Submit
                 </button>
